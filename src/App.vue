@@ -1,18 +1,20 @@
 <template>
  <div>
    <Header :logo-spotify="logoSpotify"/>
-   <main></main>
+   <Main />
  </div>
 </template>
 
 <script>
 import Header from "./components/Header.vue";
+import Main from "./components/Main.vue";
 
 export default {
   name: 'App',
   props: "logoSpotify",
   components: {
     Header,
+    Main,
   },
   data(){
     return{
