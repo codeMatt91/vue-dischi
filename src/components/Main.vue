@@ -2,16 +2,14 @@
   <main>
     <div class="container">
       <div class="albums py-5">
-        <div class="card">
-          <img
-            src="https://www.onstageweb.com/wp-content/uploads/2018/09/bon-jovi-new-jersey.jpg"
-            class="card-img-top img-fluid"
-            alt="album"
-          />
+        <div v-for="(album, index) in albums" :key="index" class="card">
+          <div class="img-album">
+            <img :src="album.poster" class="img-fluid" alt="album" />
+          </div>
           <div class="card-body">
-            <h2 class="card-title">title</h2>
-            <div class="author">Author</div>
-            <div class="year">1968</div>
+            <h4 class="card-title">{{ album.title }}</h4>
+            <div class="author text-muted h6">{{ album.author }}</div>
+            <div class="year text-muted h6">{{ album.year }}</div>
           </div>
         </div>
       </div>
@@ -53,10 +51,23 @@ main {
 .albums {
   display: flex;
   flex-wrap: wrap;
+  .img-album {
+    width: 100%;
+    height: 200px;
+    img {
+      object-fit: cover;
+      object-position: center;
+    }
+  }
 }
 .card {
-  width: calc(100% / 5);
+  width: calc(90% / 5);
+  margin: 10px calc(5% / 5);
   text-align: center;
   background-color: $bg_card;
+  padding: 10px;
+  .card-body {
+    padding: 5px;
+  }
 }
 </style>
