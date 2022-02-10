@@ -47,13 +47,14 @@ export default {
 main {
   color: white;
   background-color: $bg_main;
+  height: calc(100vh - 100px);
 }
 .albums {
   display: flex;
   flex-wrap: wrap;
   .img-album {
     width: 100%;
-    height: 200px;
+    height: 250px;
     img {
       object-fit: cover;
       object-position: center;
