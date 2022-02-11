@@ -50,7 +50,7 @@ header {
 #search {
   margin-right: 20px;
   color: white;
-  select{
+  select {
     width: 150px;
   }
   label {

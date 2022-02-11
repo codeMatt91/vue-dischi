@@ -1,7 +1,7 @@
 <template>
   <div id="wrapper">
-    <Header @get-albums="albums" />
-    <Main />
+    <Header />
+    <Main @get-albums="getAllAlbums" />
   </div>
 </template>
 
@@ -11,7 +11,19 @@ import Main from "./components/Main.vue";
 
 export default {
   name: "App",
-
+  data() {
+    return {
+      allAlbums: [],
+    };
+  },
+  methods: {
+    getAllAlbums(albums) {
+      this.allAlbums = albums;
+    },
+  },
+  mounted() {
+    this.getAllAlbums();
+  },
   components: {
     Header,
     Main,

@@ -32,6 +32,8 @@ export default {
         .get("https://flynn.boolean.careers/exercises/api/array/music")
         .then((res) => {
           this.albums = res.data.response;
+
+          this.passAlbums();
         });
     },
     passAlbums() {
@@ -40,7 +42,6 @@ export default {
   },
   mounted() {
     this.getAlbums();
-    this.passAlbums();
   },
 };
 </script>
