@@ -1,6 +1,6 @@
 <template>
   <div id="wrapper">
-    <Header />
+    <Header @get-albums="albums" />
     <Main />
   </div>
 </template>

@@ -34,9 +34,13 @@ export default {
           this.albums = res.data.response;
         });
     },
+    passAlbums() {
+      this.$emit("get-albums", this.albums);
+    },
   },
   mounted() {
     this.getAlbums();
+    this.passAlbums();
   },
 };
 </script>

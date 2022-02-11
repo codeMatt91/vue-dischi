@@ -6,6 +6,15 @@
         alt="logo spotify"
       />
     </div>
+    <div id="search">
+      <label for="search-genre">Choose genre:</label>
+      <select id="search-genre">
+        <option value="--">--</option>
+        <option value="saab">Saab</option>
+        <option value="mercedes">Mercedes</option>
+        <option value="audi">Audi</option>
+      </select>
+    </div>
   </header>
 </template>
 
@@ -22,6 +31,9 @@ header {
   background-color: $bg_header;
   padding: 15px 0;
   height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   .logo {
     height: 100%;
     margin-left: 20px;
@@ -32,6 +44,18 @@ header {
       width: 50px;
       height: 50px;
     }
+  }
+}
+
+#search {
+  margin-right: 20px;
+  color: white;
+  select{
+    width: 150px;
+  }
+  label {
+    text-transform: uppercase;
+    margin-right: 10px;
   }
 }
 </style>
