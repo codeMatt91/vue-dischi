@@ -1,32 +1,47 @@
 <template>
   <div id="wrapper">
-    <Header />
-    <Main @get-albums="getAllAlbums" />
+    <Header :genres="genres"/>
+    <Main :albums="albums" />
   </div>
 </template>
 
 <script>
+import axios from "axios";
+
 import Header from "./components/Header.vue";
 import Main from "./components/Main.vue";
 
 export default {
   name: "App",
-  data() {
-    return {
-      allAlbums: [],
-    };
-  },
-  methods: {
-    getAllAlbums(albums) {
-      this.allAlbums = albums;
-    },
-  },
-  mounted() {
-    this.getAllAlbums();
-  },
   components: {
     Header,
     Main,
+  },
+  data() {
+    return {
+      albums: [],
+      genres: [],
+    };
+  },
+  methods: {
+    getAlbums() {
+      axios
+        .get("https://flynn.boolean.careers/exercises/api/array/music")
+        .then((res) => {
+          this.albums = res.data.response;
+        });
+    },
+  },
+  computed: {
+    filteredAllAlbums() {
+      return this.albums.forEach((album) => {
+        if (this.genres.includes(album.genre)) return;
+        this.genres.push(album.genre);
+      });
+    },
+  },
+  mounted() {
+    this.getAlbums();
   },
 };
 </script>

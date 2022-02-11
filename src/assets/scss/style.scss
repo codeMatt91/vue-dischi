@@ -1,6 +1,11 @@
 @import "~bootstrap/scss/bootstrap.scss";
 @import "vars";
 
+body{
+   height: 100vh;
+   background-color: $bg_main;
+}
 #wrapper {
   height: 100vh;
+  
 }

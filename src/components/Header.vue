@@ -9,10 +9,13 @@
     <div id="search">
       <label for="search-genre">Choose genre:</label>
       <select id="search-genre">
-        <option value="--">--</option>
-        <option value="saab">Saab</option>
-        <option value="mercedes">Mercedes</option>
-        <option value="audi">Audi</option>
+        <option
+          v-for="(genre, index) in genres"
+          :key="index"
+          value="genre[index]"
+        >
+          {{ genre }}
+        </option>
       </select>
     </div>
   </header>
@@ -21,6 +24,7 @@
 <script>
 export default {
   name: "Header",
+  props: ["genres"],
 };
 </script>
 

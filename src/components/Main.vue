@@ -18,30 +18,13 @@
 </template>
 
 <script>
-import axios from "axios";
 export default {
   name: "Main",
+  props:['albums'],
   data() {
     return {
-      albums: [],
-    };
-  },
-  methods: {
-    getAlbums() {
-      axios
-        .get("https://flynn.boolean.careers/exercises/api/array/music")
-        .then((res) => {
-          this.albums = res.data.response;
 
-          this.passAlbums();
-        });
-    },
-    passAlbums() {
-      this.$emit("get-albums", this.albums);
-    },
-  },
-  mounted() {
-    this.getAlbums();
+    };
   },
 };
 </script>
