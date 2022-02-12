@@ -9,7 +9,7 @@
     <div id="search">
       <label for="search-genre">Choose genre:</label>
       <select v-model="selected" @change="onChange" id="search-genre">
-        <option value="ALL">ALL</option>
+        <option value="">ALL</option>
         <option v-for="(genre, index) in genres" :key="index" :value="genre">
           {{ genre }}
         </option>
@@ -24,7 +24,7 @@ export default {
   props: ["genres"],
   data() {
     return {
-      selected: "ALL",
+      selected: "",
     };
   },
   methods: {

@@ -28,7 +28,7 @@ export default {
   computed: {
     getGenreAlbum() {
       return this.albums.filter((album) => {
-        if (album.genre === this.choose) {
+        if (album.genre === this.choose || this.choose == '') {
           return true;
         } else {
           return false;
