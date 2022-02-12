@@ -8,12 +8,9 @@
     </div>
     <div id="search">
       <label for="search-genre">Choose genre:</label>
-      <select id="search-genre">
-        <option
-          v-for="(genre, index) in genres"
-          :key="index"
-          value="genre[index]"
-        >
+      <select v-model="selected" @change="onChange" id="search-genre">
+        <option value="ALL">ALL</option>
+        <option v-for="(genre, index) in genres" :key="index" :value="genre">
           {{ genre }}
         </option>
       </select>
@@ -25,6 +22,16 @@
 export default {
   name: "Header",
   props: ["genres"],
+  data() {
+    return {
+      selected: "",
+    };
+  },
+  methods: {
+    onChange() {
+      this.$emit("value", this.selected);
+    },
+  },
 };
 </script>
 

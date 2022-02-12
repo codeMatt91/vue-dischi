@@ -1,6 +1,6 @@
 <template>
   <div id="wrapper">
-    <Header :genres="genres"/>
+    <Header :genres="genres" @value="mySelected" />
     <Main :albums="albums" />
   </div>
 </template>
@@ -21,6 +21,7 @@ export default {
     return {
       albums: [],
       genres: [],
+      myChoise: "",
     };
   },
   methods: {
@@ -29,17 +30,21 @@ export default {
         .get("https://flynn.boolean.careers/exercises/api/array/music")
         .then((res) => {
           this.albums = res.data.response;
+
+          this.filteredAllAlbums();
         });
     },
-  },
-  computed: {
     filteredAllAlbums() {
       return this.albums.forEach((album) => {
         if (this.genres.includes(album.genre)) return;
         this.genres.push(album.genre);
       });
     },
+    mySelected(text) {
+      this.myChoise = text;
+    },
   },
+  computed: {},
   mounted() {
     this.getAlbums();
   },
