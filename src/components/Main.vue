@@ -1,7 +1,7 @@
 <template>
   <main>
     <div class="container">
-      <div class="albums py-5">
+      <div class="albums py-5 d-flex justify-content-center">
         <div v-for="(album, index) in getGenreAlbum" :key="index" class="card">
           <div class="img-album">
             <img :src="album.poster" class="img-fluid" :alt="album.genre" />
@@ -28,7 +28,7 @@ export default {
   computed: {
     getGenreAlbum() {
       return this.albums.filter((album) => {
-        if (album.genre === this.choose || this.choose == '') {
+        if (album.genre === this.choose || this.choose == "") {
           return true;
         } else {
           return false;
