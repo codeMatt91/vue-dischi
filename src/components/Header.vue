@@ -24,7 +24,7 @@ export default {
   props: ["genres"],
   data() {
     return {
-      selected: "",
+      selected: "ALL",
     };
   },
   methods: {

@@ -1,7 +1,7 @@
 <template>
   <div id="wrapper">
     <Header :genres="genres" @value="mySelected" />
-    <Main :albums="albums" />
+    <Main :albums="albums" :choose="choose" />
   </div>
 </template>
 
@@ -21,7 +21,7 @@ export default {
     return {
       albums: [],
       genres: [],
-      myChoise: "",
+      choose: "",
     };
   },
   methods: {
@@ -41,7 +41,7 @@ export default {
       });
     },
     mySelected(text) {
-      this.myChoise = text;
+      this.choose = text;
     },
   },
   computed: {},

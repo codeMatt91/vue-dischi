@@ -2,9 +2,9 @@
   <main>
     <div class="container">
       <div class="albums py-5">
-        <div v-for="(album, index) in albums" :key="index" class="card">
+        <div v-for="(album, index) in getGenreAlbum" :key="index" class="card">
           <div class="img-album">
-            <img :src="album.poster" class="img-fluid" alt="album" />
+            <img :src="album.poster" class="img-fluid" :alt="album.genre" />
           </div>
           <div class="card-body">
             <h4 class="card-title">{{ album.title }}</h4>
@@ -20,15 +20,22 @@
 <script>
 export default {
   name: "Main",
-  props:['albums'],
+  props: { albums: Array, choose: String },
   data() {
-    return {
-
-    };
+    return {};
   },
-  methods:{
-     
-  }
+  methods: {},
+  computed: {
+    getGenreAlbum() {
+      return this.albums.filter((album) => {
+        if (album.genre === this.choose) {
+          return true;
+        } else {
+          return false;
+        }
+      });
+    },
+  },
 };
 </script>
 
